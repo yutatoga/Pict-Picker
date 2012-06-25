@@ -1,0 +1,291 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D59D0D5158FBB6C0007A03A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D59D0D4158FBB6C0007A03A /* UIKit.framework */; };
+		8D59D0D7158FBB6C0007A03A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D59D0D6158FBB6C0007A03A /* Foundation.framework */; };
+		8D59D0D9158FBB6C0007A03A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D59D0D8158FBB6C0007A03A /* CoreGraphics.framework */; };
+		8D59D0DF158FBB6C0007A03A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D59D0DD158FBB6C0007A03A /* InfoPlist.strings */; };
+		8D59D0E1158FBB6C0007A03A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D59D0E0158FBB6C0007A03A /* main.m */; };
+		8D59D0E5158FBB6C0007A03A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D59D0E4158FBB6C0007A03A /* AppDelegate.m */; };
+		8D59D0E8158FBB6C0007A03A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D59D0E6158FBB6C0007A03A /* MainStoryboard.storyboard */; };
+		8D59D0F6158FBC350007A03A /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D59D0F5158FBC350007A03A /* MasterViewController.m */; };
+		8D6982A8158FD012005F390C /* t_hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D6982A7158FD012005F390C /* t_hero.png */; };
+		8D9CAE6915980FC5004DB1A0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9CAE6815980FC5004DB1A0 /* MobileCoreServices.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8D59D0D0158FBB6C0007A03A /* Pict Picker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pict Picker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D59D0D4158FBB6C0007A03A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8D59D0D6158FBB6C0007A03A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8D59D0D8158FBB6C0007A03A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8D59D0DC158FBB6C0007A03A /* Pict Picker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pict Picker-Info.plist"; sourceTree = "<group>"; };
+		8D59D0DE158FBB6C0007A03A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8D59D0E0158FBB6C0007A03A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8D59D0E2158FBB6C0007A03A /* Pict Picker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pict Picker-Prefix.pch"; sourceTree = "<group>"; };
+		8D59D0E3158FBB6C0007A03A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8D59D0E4158FBB6C0007A03A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8D59D0E7158FBB6C0007A03A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		8D59D0F4158FBC350007A03A /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		8D59D0F5158FBC350007A03A /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		8D6982A7158FD012005F390C /* t_hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t_hero.png; sourceTree = "<group>"; };
+		8D9CAE6815980FC5004DB1A0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D59D0CD158FBB6C0007A03A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D9CAE6915980FC5004DB1A0 /* MobileCoreServices.framework in Frameworks */,
+				8D59D0D5158FBB6C0007A03A /* UIKit.framework in Frameworks */,
+				8D59D0D7158FBB6C0007A03A /* Foundation.framework in Frameworks */,
+				8D59D0D9158FBB6C0007A03A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8D59D0C5158FBB6C0007A03A = {
+			isa = PBXGroup;
+			children = (
+				8D59D0DA158FBB6C0007A03A /* Pict Picker */,
+				8D59D0D3158FBB6C0007A03A /* Frameworks */,
+				8D59D0D1158FBB6C0007A03A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8D59D0D1158FBB6C0007A03A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D59D0D0158FBB6C0007A03A /* Pict Picker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8D59D0D3158FBB6C0007A03A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D9CAE6815980FC5004DB1A0 /* MobileCoreServices.framework */,
+				8D59D0D4158FBB6C0007A03A /* UIKit.framework */,
+				8D59D0D6158FBB6C0007A03A /* Foundation.framework */,
+				8D59D0D8158FBB6C0007A03A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8D59D0DA158FBB6C0007A03A /* Pict Picker */ = {
+			isa = PBXGroup;
+			children = (
+				8D59D0E3158FBB6C0007A03A /* AppDelegate.h */,
+				8D59D0E4158FBB6C0007A03A /* AppDelegate.m */,
+				8D59D0E6158FBB6C0007A03A /* MainStoryboard.storyboard */,
+				8D59D0F4158FBC350007A03A /* MasterViewController.h */,
+				8D59D0F5158FBC350007A03A /* MasterViewController.m */,
+				8D59D0DB158FBB6C0007A03A /* Supporting Files */,
+			);
+			path = "Pict Picker";
+			sourceTree = "<group>";
+		};
+		8D59D0DB158FBB6C0007A03A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D6982A7158FD012005F390C /* t_hero.png */,
+				8D59D0DC158FBB6C0007A03A /* Pict Picker-Info.plist */,
+				8D59D0DD158FBB6C0007A03A /* InfoPlist.strings */,
+				8D59D0E0158FBB6C0007A03A /* main.m */,
+				8D59D0E2158FBB6C0007A03A /* Pict Picker-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D59D0CF158FBB6C0007A03A /* Pict Picker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D59D0F1158FBB6C0007A03A /* Build configuration list for PBXNativeTarget "Pict Picker" */;
+			buildPhases = (
+				8D59D0CC158FBB6C0007A03A /* Sources */,
+				8D59D0CD158FBB6C0007A03A /* Frameworks */,
+				8D59D0CE158FBB6C0007A03A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pict Picker";
+			productName = "Pict Picker";
+			productReference = 8D59D0D0158FBB6C0007A03A /* Pict Picker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8D59D0C7158FBB6C0007A03A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Yuta Toga";
+			};
+			buildConfigurationList = 8D59D0CA158FBB6C0007A03A /* Build configuration list for PBXProject "Pict Picker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8D59D0C5158FBB6C0007A03A;
+			productRefGroup = 8D59D0D1158FBB6C0007A03A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D59D0CF158FBB6C0007A03A /* Pict Picker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D59D0CE158FBB6C0007A03A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D59D0DF158FBB6C0007A03A /* InfoPlist.strings in Resources */,
+				8D59D0E8158FBB6C0007A03A /* MainStoryboard.storyboard in Resources */,
+				8D6982A8158FD012005F390C /* t_hero.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D59D0CC158FBB6C0007A03A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D59D0E1158FBB6C0007A03A /* main.m in Sources */,
+				8D59D0E5158FBB6C0007A03A /* AppDelegate.m in Sources */,
+				8D59D0F6158FBC350007A03A /* MasterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8D59D0DD158FBB6C0007A03A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D59D0DE158FBB6C0007A03A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8D59D0E6158FBB6C0007A03A /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D59D0E7158FBB6C0007A03A /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8D59D0EF158FBB6C0007A03A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8D59D0F0158FBB6C0007A03A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8D59D0F2158FBB6C0007A03A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pict Picker/Pict Picker-Prefix.pch";
+				INFOPLIST_FILE = "Pict Picker/Pict Picker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8D59D0F3158FBB6C0007A03A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pict Picker/Pict Picker-Prefix.pch";
+				INFOPLIST_FILE = "Pict Picker/Pict Picker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8D59D0CA158FBB6C0007A03A /* Build configuration list for PBXProject "Pict Picker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D59D0EF158FBB6C0007A03A /* Debug */,
+				8D59D0F0158FBB6C0007A03A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D59D0F1158FBB6C0007A03A /* Build configuration list for PBXNativeTarget "Pict Picker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D59D0F2158FBB6C0007A03A /* Debug */,
+				8D59D0F3158FBB6C0007A03A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8D59D0C7158FBB6C0007A03A /* Project object */;
+}
