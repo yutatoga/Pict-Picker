@@ -15,10 +15,10 @@
     CGPoint touchPoint;
     IBOutlet UIImageView *pictImageView;
     IBOutlet UIBarButtonItem *lineModeButton;
-    IBOutlet UIBarButtonItem *cercleModeButton;
-    IBOutlet UIBarButtonItem *resetModeButton;
+    IBOutlet UIBarButtonItem *circleModeButton;
+    IBOutlet UIBarButtonItem *undoModeButton;
     IBOutlet UIBarButtonItem *holeModeButton;
-    IBOutlet UIBarButtonItem *fillModeButton;
+    IBOutlet UIBarButtonItem *originalModeButton;
     IBOutlet UIBarButtonItem *checkModeButton;
     IBOutlet UILabel *myRadiusLabel;
     IBOutlet UILabel *myCentralLabel;
@@ -34,10 +34,10 @@
 @property (nonatomic, retain) NSMutableArray *circleArray;
 
 -(IBAction)lineModeButtonTouched;
--(IBAction)cercleModeButtonTouched;
--(IBAction)resetModeButtonTouched;
+-(IBAction)circleModeButtonTouched;
+-(IBAction)undoModeButtonTouched;
 -(IBAction)holeModeButtonTouched;
--(IBAction)fillModeButtonTouched;
+-(IBAction)originalModeButtonTouched;
 -(IBAction)checkModeButtonTouched;
 -(IBAction)cameraButtonTouched;
 -(IBAction)actionButtonTouched;

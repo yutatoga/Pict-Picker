@@ -37,12 +37,45 @@
     [self.view insertSubview:canvas aboveSubview:self.view];
 
     
-    self.modeNum = [[NSNumber alloc] initWithInt:0];
+    self.modeNum = [[NSNumber alloc] initWithInt:2];//2 is hole mode
     self.circleArray = [[NSMutableArray alloc] init];
     lineModeButton.tintColor = [UIColor blueColor];
     isKeepTouching = false;
     hideColor = [[UIColor alloc] initWithRed:1.0 green:0.5 blue:0.5 alpha:0.5];
+    
+    //fill
+    NSLog(@"fillModeButtonTouched");
+    UIGraphicsBeginImageContext(canvas.frame.size);
+    CGFloat instantRed;
+    CGFloat instantGreen;
+    CGFloat instantBlue;
+    CGFloat instantAlpha;
+    // UIColor 型の color から RGBA の値を取得します。
+    [hideColor getRed:&instantRed green:&instantGreen blue:&instantBlue alpha:&instantAlpha];
+    CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, instantAlpha);
+    // start at origin
+    CGContextMoveToPoint (UIGraphicsGetCurrentContext(), CGRectGetMinX(canvas.frame), CGRectGetMinY(canvas.frame));
+    // add bottom edge
+    CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMaxX(canvas.frame), CGRectGetMinY(canvas.frame));
+    // add right edge
+    CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMaxX(canvas.frame), CGRectGetMaxY(canvas.frame));
+    // add top edge
+    CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMinX(canvas.frame), CGRectGetMaxY(canvas.frame));
+    // add left edge and close
+    CGContextClosePath (UIGraphicsGetCurrentContext());
+    CGContextFillPath(UIGraphicsGetCurrentContext());
+    canvas.image = UIGraphicsGetImageFromCurrentImageContext();    
+    UIGraphicsEndImageContext();
+    
+    
+    //?????
+    //[originalModeButton initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(touchDown:) ];
 }
+
+- (void) touchDown:(id)sender {
+    NSLog(@"touchDown");
+}
+
 //OtO added
 // 画面に指をタッチしたとき
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -233,39 +266,37 @@
 -(IBAction)lineModeButtonTouched{
     if (self.modeNum.intValue != 0) {
         self.modeNum = [[NSNumber alloc] initWithInt:0];
-        cercleModeButton.tintColor = lineModeButton.tintColor;
+        circleModeButton.tintColor = lineModeButton.tintColor;
         holeModeButton.tintColor = lineModeButton.tintColor;
         lineModeButton.tintColor = [UIColor blueColor];
     }
 }
--(IBAction)cercleModeButtonTouched{
+-(IBAction)circleModeButtonTouched{
     if (self.modeNum.intValue != 1) {
         self.modeNum = [[NSNumber alloc] initWithInt:1];
-        lineModeButton.tintColor = cercleModeButton.tintColor;
-        holeModeButton.tintColor = cercleModeButton.tintColor;
-        cercleModeButton.tintColor = [UIColor blueColor];
+        lineModeButton.tintColor = circleModeButton.tintColor;
+        holeModeButton.tintColor = circleModeButton.tintColor;
+        circleModeButton.tintColor = [UIColor blueColor];
     }
 }
 -(IBAction)holeModeButtonTouched{
     if (self.modeNum.intValue != 2) {
         self.modeNum = [[NSNumber alloc] initWithInt:2];
         lineModeButton.tintColor = holeModeButton.tintColor;
-        cercleModeButton.tintColor = holeModeButton.tintColor;
+        circleModeButton.tintColor = holeModeButton.tintColor;
         holeModeButton.tintColor = [UIColor blueColor];
     }
 }
--(IBAction)resetModeButtonTouched{
-    //reset
-    // 描画領域をcanvasの大きさで生成
+-(IBAction)undoModeButtonTouched{
+    //undo
+    NSLog(@"undoModeButtonTouched");
+    [self.circleArray removeLastObject];
+
+    //1.クリア
     UIGraphicsBeginImageContext(canvas.frame.size);
     canvas.image = nil;
-    // 描画領域のクリア
     UIGraphicsEndImageContext();
-    [self.circleArray removeAllObjects];
-}
-
--(IBAction)fillModeButtonTouched{
-    NSLog(@"fillModeButtonTouched");
+    //2.塗りつぶす
     UIGraphicsBeginImageContext(canvas.frame.size);
     CGFloat instantRed;
     CGFloat instantGreen;
@@ -273,7 +304,13 @@
     CGFloat instantAlpha;
     // UIColor 型の color から RGBA の値を取得します。
     [hideColor getRed:&instantRed green:&instantGreen blue:&instantBlue alpha:&instantAlpha];
-    CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, instantAlpha);
+    if(checkModeButton.tintColor == [UIColor blueColor]){
+        //hideColorをべた塗りに
+        CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, 1.0);
+    }else{
+        //hideColorを半透明に
+        CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, instantAlpha);
+    }
     // start at origin
     CGContextMoveToPoint (UIGraphicsGetCurrentContext(), CGRectGetMinX(canvas.frame), CGRectGetMinY(canvas.frame));
     // add bottom edge
@@ -287,6 +324,118 @@
     CGContextFillPath(UIGraphicsGetCurrentContext());
     canvas.image = UIGraphicsGetImageFromCurrentImageContext();    
     UIGraphicsEndImageContext();
+    
+    
+    
+    //3.arrayからholeをよみとって、描画
+    for (int i=0; i<self.circleArray.count; i++) {
+        NSLog(@"for %d", i);
+        //hole
+        // 描画領域をcanvasの大きさで生成
+        UIGraphicsBeginImageContext(canvas.frame.size);
+        // canvasにセットされている画像（UIImage）を描画
+        [canvas.image drawInRect:
+         CGRectMake(0, 0, canvas.frame.size.width, canvas.frame.size.height)];
+        //ここに書く
+        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear);//important
+        
+        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 1.0);
+        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0.0, 0.0, 0.0, 1.0);//important
+        CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), CGRectMake([[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].x - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                            [[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].y - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                            [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2,
+                                                                            [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2));
+        CGContextStrokePath(UIGraphicsGetCurrentContext());
+        
+        CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), CGRectMake([[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].x - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                            [[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].y - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                            [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2,
+                                                                            [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2));
+        CGContextFillPath(UIGraphicsGetCurrentContext());
+        //
+        //描画
+        canvas.image = UIGraphicsGetImageFromCurrentImageContext();
+        // 描画領域のクリア
+        UIGraphicsEndImageContext();
+    }
+}
+
+-(IBAction)originalModeButtonTouched{
+    NSLog(@"originalModeButtonTouched");
+    if(originalModeButton.tintColor == [UIColor blueColor]){
+        originalModeButton.tintColor = nil;
+        //back to editing view
+        //1.クリア
+        UIGraphicsBeginImageContext(canvas.frame.size);
+        canvas.image = nil;
+        UIGraphicsEndImageContext();
+        //2.塗りつぶす
+        UIGraphicsBeginImageContext(canvas.frame.size);
+        CGFloat instantRed;
+        CGFloat instantGreen;
+        CGFloat instantBlue;
+        CGFloat instantAlpha;
+        // UIColor 型の color から RGBA の値を取得します。
+        [hideColor getRed:&instantRed green:&instantGreen blue:&instantBlue alpha:&instantAlpha];
+        if(checkModeButton.tintColor == [UIColor blueColor]){
+            //hideColorをべた塗りに
+            CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, 1.0);
+        }else{
+            //hideColorを半透明に
+            CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, instantAlpha);
+        }
+        // start at origin
+        CGContextMoveToPoint (UIGraphicsGetCurrentContext(), CGRectGetMinX(canvas.frame), CGRectGetMinY(canvas.frame));
+        // add bottom edge
+        CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMaxX(canvas.frame), CGRectGetMinY(canvas.frame));
+        // add right edge
+        CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMaxX(canvas.frame), CGRectGetMaxY(canvas.frame));
+        // add top edge
+        CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMinX(canvas.frame), CGRectGetMaxY(canvas.frame));
+        // add left edge and close
+        CGContextClosePath (UIGraphicsGetCurrentContext());
+        CGContextFillPath(UIGraphicsGetCurrentContext());
+        canvas.image = UIGraphicsGetImageFromCurrentImageContext();    
+        UIGraphicsEndImageContext();
+        
+        
+        
+        //3.arrayからholeをよみとって、描画
+        for (int i=0; i<self.circleArray.count; i++) {
+            NSLog(@"for %d", i);
+            //hole
+            // 描画領域をcanvasの大きさで生成
+            UIGraphicsBeginImageContext(canvas.frame.size);
+            // canvasにセットされている画像（UIImage）を描画
+            [canvas.image drawInRect:
+             CGRectMake(0, 0, canvas.frame.size.width, canvas.frame.size.height)];
+            //ここに書く
+            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear);//important
+            
+            CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 1.0);
+            CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0.0, 0.0, 0.0, 1.0);//important
+            CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), CGRectMake([[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].x - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].y - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2,
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2));
+            CGContextStrokePath(UIGraphicsGetCurrentContext());
+            
+            CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), CGRectMake([[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].x - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].y - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2,
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2));
+            CGContextFillPath(UIGraphicsGetCurrentContext());
+            //
+            //描画
+            canvas.image = UIGraphicsGetImageFromCurrentImageContext();
+            // 描画領域のクリア
+            UIGraphicsEndImageContext();
+        }
+    }else{
+        originalModeButton.tintColor = [UIColor blueColor];
+        //show original
+        canvas.image = nil;
+    }
 }
 
 -(IBAction)checkModeButtonTouched{
@@ -304,10 +453,12 @@
     // UIColor 型の color から RGBA の値を取得します。
     [hideColor getRed:&instantRed green:&instantGreen blue:&instantBlue alpha:&instantAlpha];
     if(checkModeButton.tintColor == [UIColor blueColor]){
+        //show editing view
         checkModeButton.tintColor = nil;
         //hideColorを半透明に
         CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, instantAlpha);        
     }else{
+        //show completion
         checkModeButton.tintColor = [UIColor blueColor];
         //hideColorをべた塗りに
         CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, 1.0);
@@ -443,6 +594,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
 }
 // 「キャンセル(Cancel)」をタップしたユーザへの応答.
 - (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker {
+    NSLog(@"imagePickerControllerDidCancel");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 // 新規にキャプチャした写真やムービーを受理したユーザへの応答
@@ -479,7 +631,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
                                                  moviePath, nil, nil, nil);
         }
     }
-    [[picker presentedViewController] dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)actionButtonTouched{
@@ -547,7 +699,25 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    NSLog(@"shouldAutorotateToInterfaceOrientation");
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //OtO
+    if(interfaceOrientation == UIInterfaceOrientationPortrait){
+        // 通常
+        return YES;
+    }else if(interfaceOrientation == UIInterfaceOrientationLandscapeLeft){
+        // 左に倒した状態
+        NSLog(@"left");
+        return NO;
+    }else if(interfaceOrientation == UIInterfaceOrientationLandscapeRight){
+        // 右に倒した状態
+        return NO;
+    }else if(interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown){
+        // 逆さまの状態
+        return NO;
+    }
+    NSLog(@"shouldAutorotateToInterfaceOrientation: something wrong");
+    return NO;
 }
 
 @end

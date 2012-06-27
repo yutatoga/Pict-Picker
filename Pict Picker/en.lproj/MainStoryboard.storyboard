@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2541" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2809" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1875"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1884"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -27,40 +27,24 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="t_hero.png" id="v2g-VW-Nnk">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="224" id="Yal-SH-upA"/>
-                                </constraints>
-                            </imageView>
+                            <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="t_hero.png" id="v2g-VW-Nnk"/>
                             <toolbar translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fk4-hU-31y">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="V4H-B9-5sH"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gO2-lQ-41q"/>
-                                    <barButtonItem title="line" id="4ip-CE-NjO">
+                                    <barButtonItem title="Original" id="DuU-Hq-460">
                                         <connections>
-                                            <action selector="lineModeButtonTouched" destination="g4l-vQ-gS1" id="ARd-ke-nTA"/>
+                                            <action selector="originalModeButtonTouched" destination="g4l-vQ-gS1" id="0dt-ar-qLD"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="circle" id="Mh8-nS-qT5">
+                                    <barButtonItem systemItem="undo" id="4gP-yx-o47">
                                         <connections>
-                                            <action selector="cercleModeButtonTouched" destination="g4l-vQ-gS1" id="B9J-U1-50v"/>
+                                            <action selector="undoModeButtonTouched" destination="g4l-vQ-gS1" id="RbF-eT-Ql9"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="hole" id="geB-tr-sZe">
-                                        <connections>
-                                            <action selector="holeModeButtonTouched" destination="g4l-vQ-gS1" id="BHC-IJ-VbG"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="fill" id="DuU-Hq-460">
-                                        <connections>
-                                            <action selector="fillModeButtonTouched" destination="g4l-vQ-gS1" id="dAH-Pl-9CP"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="reset" id="4gP-yx-o47">
-                                        <connections>
-                                            <action selector="resetModeButtonTouched" destination="g4l-vQ-gS1" id="x0m-cT-ur5"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="check" id="PTi-Mi-4If">
+                                    <barButtonItem title="Check" id="PTi-Mi-4If">
                                         <connections>
                                             <action selector="checkModeButtonTouched" destination="g4l-vQ-gS1" id="7HB-7V-M55"/>
                                         </connections>
@@ -68,36 +52,13 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Uwa-4b-ri8"/>
                                 </items>
                             </toolbar>
-                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Radius:" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="xd5-mh-Esy">
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="V4T-MG-51b"/>
-                                    <constraint firstAttribute="width" constant="250" id="Wcy-3q-VnS"/>
-                                </constraints>
-                                <nil key="highlightedColor"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            </label>
-                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Central:" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="ymA-Bs-NIK">
-                                <color key="backgroundColor" red="0.0" green="0.63763230849999997" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="sSq-Xj-oIr"/>
-                                </constraints>
-                                <nil key="highlightedColor"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="v2g-VW-Nnk" firstAttribute="leading" secondItem="6O4-t7-1ba" secondAttribute="leading" type="default" id="CzE-XX-XMf"/>
-                            <constraint firstAttribute="bottom" secondItem="xd5-mh-Esy" secondAttribute="bottom" constant="94" id="D5Z-e4-gbv"/>
+                            <constraint firstItem="fk4-hU-31y" firstAttribute="top" secondItem="v2g-VW-Nnk" secondAttribute="bottom" type="default" id="IaJ-pJ-GZD"/>
+                            <constraint firstItem="v2g-VW-Nnk" firstAttribute="top" secondItem="6O4-t7-1ba" secondAttribute="top" type="default" id="KBv-g3-pBV"/>
                             <constraint firstItem="fk4-hU-31y" firstAttribute="leading" secondItem="6O4-t7-1ba" secondAttribute="leading" type="default" id="M1b-oN-AQQ"/>
-                            <constraint firstItem="ymA-Bs-NIK" firstAttribute="trailing" secondItem="xd5-mh-Esy" secondAttribute="trailing" type="default" id="QUw-4E-aXK"/>
-                            <constraint firstItem="ymA-Bs-NIK" firstAttribute="centerX" secondItem="fk4-hU-31y" secondAttribute="centerX" type="default" id="S17-1X-2km"/>
-                            <constraint firstAttribute="bottom" secondItem="ymA-Bs-NIK" secondAttribute="bottom" constant="71" id="TOl-HH-LnB"/>
-                            <constraint firstItem="v2g-VW-Nnk" firstAttribute="top" secondItem="6O4-t7-1ba" secondAttribute="top" constant="77" id="XXy-Pg-m9g"/>
-                            <constraint firstItem="ymA-Bs-NIK" firstAttribute="leading" secondItem="xd5-mh-Esy" secondAttribute="leading" type="default" id="eLU-N5-RZZ"/>
                             <constraint firstItem="fk4-hU-31y" firstAttribute="bottom" secondItem="6O4-t7-1ba" secondAttribute="bottom" type="default" id="jo0-zS-ZHn"/>
                             <constraint firstItem="v2g-VW-Nnk" firstAttribute="trailing" secondItem="6O4-t7-1ba" secondAttribute="trailing" type="default" id="vvh-3c-hxg"/>
                             <constraint firstItem="fk4-hU-31y" firstAttribute="trailing" secondItem="6O4-t7-1ba" secondAttribute="trailing" type="default" id="xzG-T0-lhx"/>
@@ -116,16 +77,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cercleModeButton" destination="Mh8-nS-qT5" id="sPS-UQ-L6I"/>
                         <outlet property="checkModeButton" destination="PTi-Mi-4If" id="cEh-Z7-x1N"/>
-                        <outlet property="fillModeButton" destination="DuU-Hq-460" id="nAP-cN-ok9"/>
-                        <outlet property="holeModeButton" destination="geB-tr-sZe" id="mhZ-gl-5YD"/>
-                        <outlet property="lineModeButton" destination="4ip-CE-NjO" id="ff7-te-MxC"/>
-                        <outlet property="myCentralLabel" destination="ymA-Bs-NIK" id="cIx-U9-rde"/>
-                        <outlet property="myRadiusLabel" destination="xd5-mh-Esy" id="swl-zR-9jH"/>
                         <outlet property="myToolbar" destination="fk4-hU-31y" id="QjC-y5-exJ"/>
+                        <outlet property="originalModeButton" destination="DuU-Hq-460" id="TKI-JU-qtd"/>
                         <outlet property="pictImageView" destination="v2g-VW-Nnk" id="4Xj-SF-arR"/>
-                        <outlet property="resetModeButton" destination="4gP-yx-o47" id="lqn-qe-I25"/>
+                        <outlet property="undoModeButton" destination="4gP-yx-o47" id="x6c-My-75u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oe8-lp-hIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -140,24 +96,24 @@
         <class className="MasterViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
             <relationships>
+                <relationship kind="action" name="actionButtonTouched"/>
                 <relationship kind="action" name="cameraButtonTouched"/>
-                <relationship kind="action" name="cercleModeButtonTouched"/>
                 <relationship kind="action" name="checkModeButtonTouched"/>
-                <relationship kind="action" name="fillModeButtonTouched"/>
+                <relationship kind="action" name="circleModeButtonTouched"/>
                 <relationship kind="action" name="holeModeButtonTouched"/>
                 <relationship kind="action" name="lineModeButtonTouched"/>
-                <relationship kind="action" name="resetModeButtonTouched"/>
-                <relationship kind="outlet" name="cercleModeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="originalModeButtonTouched"/>
+                <relationship kind="action" name="undoModeButtonTouched"/>
                 <relationship kind="outlet" name="checkModeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="fillModeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="circleModeButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="holeModeButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="lineModeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="myActionButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="myCentralLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="myRadiusLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="myToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="originalModeButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="pictImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="resetModeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="undoModeButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
