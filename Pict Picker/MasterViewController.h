@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/UTCoreTypes.h>
+#import <QuartzCore/QuartzCore.h>
+#import <CoreImage/CoreImage.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import "UIImage+StackBlur.h"
 @interface MasterViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>{
     
     //OtO added
@@ -19,12 +23,16 @@
     IBOutlet UIBarButtonItem *undoModeButton;
     IBOutlet UIBarButtonItem *holeModeButton;
     IBOutlet UIBarButtonItem *originalModeButton;
-    IBOutlet UIBarButtonItem *checkModeButton;
+    IBOutlet UIBarButtonItem *fillModeButton;
+    IBOutlet UIBarButtonItem *specialModeButton;
     IBOutlet UILabel *myRadiusLabel;
     IBOutlet UILabel *myCentralLabel;
     IBOutlet UIToolbar *myToolbar;
+    IBOutlet UILabel *firstGuideLabel;
     BOOL isKeepTouching;
+    BOOL specialIsVirgin;
     UIImage *myImage;
+    UIImage *specialImage;
     UIColor *hideColor;
 }
 @property (nonatomic, retain) NSNumber *modeNum;
@@ -38,7 +46,9 @@
 -(IBAction)undoModeButtonTouched;
 -(IBAction)holeModeButtonTouched;
 -(IBAction)originalModeButtonTouched;
--(IBAction)checkModeButtonTouched;
+-(IBAction)fillModeButtonTouched;
+-(IBAction)specialModeButtonTouched;
 -(IBAction)cameraButtonTouched;
 -(IBAction)actionButtonTouched;
+
 @end

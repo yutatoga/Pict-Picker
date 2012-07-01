@@ -17,6 +17,13 @@
 		8D59D0F6158FBC350007A03A /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D59D0F5158FBC350007A03A /* MasterViewController.m */; };
 		8D6982A8158FD012005F390C /* t_hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D6982A7158FD012005F390C /* t_hero.png */; };
 		8D9CAE6915980FC5004DB1A0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9CAE6815980FC5004DB1A0 /* MobileCoreServices.framework */; };
+		8DAB9DB8159F1D500066D3F9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAB9DB7159F1D500066D3F9 /* QuartzCore.framework */; };
+		8DBDD8FE15A04DF9008CA9F3 /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDD8FD15A04DF9008CA9F3 /* UIImage+StackBlur.m */; };
+		8DBDD90115A06014008CA9F3 /* umika.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDD90015A06014008CA9F3 /* umika.jpg */; };
+		8DBDD90315A0601F008CA9F3 /* ki.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDD90215A0601F008CA9F3 /* ki.jpg */; };
+		8DBDD90A15A0919D008CA9F3 /* pickPicker_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDD90915A0919D008CA9F3 /* pickPicker_1.png */; };
+		8DCCDBB4159F27E100DE4EB9 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCCDBB3159F27E100DE4EB9 /* CoreImage.framework */; };
+		8DE741A6159FD54F00EC402B /* rina.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8DE741A5159FD54F00EC402B /* rina.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +42,14 @@
 		8D59D0F5158FBC350007A03A /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		8D6982A7158FD012005F390C /* t_hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t_hero.png; sourceTree = "<group>"; };
 		8D9CAE6815980FC5004DB1A0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8DAB9DB7159F1D500066D3F9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8DBDD8FC15A04DF9008CA9F3 /* UIImage+StackBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+StackBlur.h"; sourceTree = "<group>"; };
+		8DBDD8FD15A04DF9008CA9F3 /* UIImage+StackBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+StackBlur.m"; sourceTree = "<group>"; };
+		8DBDD90015A06014008CA9F3 /* umika.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = umika.jpg; sourceTree = "<group>"; };
+		8DBDD90215A0601F008CA9F3 /* ki.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ki.jpg; sourceTree = "<group>"; };
+		8DBDD90915A0919D008CA9F3 /* pickPicker_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickPicker_1.png; sourceTree = "<group>"; };
+		8DCCDBB3159F27E100DE4EB9 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		8DE741A5159FD54F00EC402B /* rina.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rina.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DCCDBB4159F27E100DE4EB9 /* CoreImage.framework in Frameworks */,
+				8DAB9DB8159F1D500066D3F9 /* QuartzCore.framework in Frameworks */,
 				8D9CAE6915980FC5004DB1A0 /* MobileCoreServices.framework in Frameworks */,
 				8D59D0D5158FBB6C0007A03A /* UIKit.framework in Frameworks */,
 				8D59D0D7158FBB6C0007A03A /* Foundation.framework in Frameworks */,
@@ -72,6 +89,8 @@
 		8D59D0D3158FBB6C0007A03A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DCCDBB3159F27E100DE4EB9 /* CoreImage.framework */,
+				8DAB9DB7159F1D500066D3F9 /* QuartzCore.framework */,
 				8D9CAE6815980FC5004DB1A0 /* MobileCoreServices.framework */,
 				8D59D0D4158FBB6C0007A03A /* UIKit.framework */,
 				8D59D0D6158FBB6C0007A03A /* Foundation.framework */,
@@ -83,6 +102,8 @@
 		8D59D0DA158FBB6C0007A03A /* Pict Picker */ = {
 			isa = PBXGroup;
 			children = (
+				8DBDD8FC15A04DF9008CA9F3 /* UIImage+StackBlur.h */,
+				8DBDD8FD15A04DF9008CA9F3 /* UIImage+StackBlur.m */,
 				8D59D0E3158FBB6C0007A03A /* AppDelegate.h */,
 				8D59D0E4158FBB6C0007A03A /* AppDelegate.m */,
 				8D59D0E6158FBB6C0007A03A /* MainStoryboard.storyboard */,
@@ -96,6 +117,10 @@
 		8D59D0DB158FBB6C0007A03A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8DBDD90915A0919D008CA9F3 /* pickPicker_1.png */,
+				8DBDD90215A0601F008CA9F3 /* ki.jpg */,
+				8DBDD90015A06014008CA9F3 /* umika.jpg */,
+				8DE741A5159FD54F00EC402B /* rina.jpg */,
 				8D6982A7158FD012005F390C /* t_hero.png */,
 				8D59D0DC158FBB6C0007A03A /* Pict Picker-Info.plist */,
 				8D59D0DD158FBB6C0007A03A /* InfoPlist.strings */,
@@ -159,6 +184,10 @@
 				8D59D0DF158FBB6C0007A03A /* InfoPlist.strings in Resources */,
 				8D59D0E8158FBB6C0007A03A /* MainStoryboard.storyboard in Resources */,
 				8D6982A8158FD012005F390C /* t_hero.png in Resources */,
+				8DE741A6159FD54F00EC402B /* rina.jpg in Resources */,
+				8DBDD90115A06014008CA9F3 /* umika.jpg in Resources */,
+				8DBDD90315A0601F008CA9F3 /* ki.jpg in Resources */,
+				8DBDD90A15A0919D008CA9F3 /* pickPicker_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +201,7 @@
 				8D59D0E1158FBB6C0007A03A /* main.m in Sources */,
 				8D59D0E5158FBB6C0007A03A /* AppDelegate.m in Sources */,
 				8D59D0F6158FBC350007A03A /* MasterViewController.m in Sources */,
+				8DBDD8FE15A04DF9008CA9F3 /* UIImage+StackBlur.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
