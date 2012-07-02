@@ -11,8 +11,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreImage/CoreImage.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "UIImage+StackBlur.h"
-@interface MasterViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>{
+#import "HRColorPickerViewController.h"
+@interface MasterViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, HRColorPickerViewControllerDelegate>{
     
     //OtO added
     UIImageView *canvas;
@@ -25,6 +27,7 @@
     IBOutlet UIBarButtonItem *originalModeButton;
     IBOutlet UIBarButtonItem *fillModeButton;
     IBOutlet UIBarButtonItem *specialModeButton;
+    IBOutlet UIBarButtonItem *colorChangeButton;
     IBOutlet UILabel *myRadiusLabel;
     IBOutlet UILabel *myCentralLabel;
     IBOutlet UIToolbar *myToolbar;
@@ -34,6 +37,8 @@
     UIImage *myImage;
     UIImage *specialImage;
     UIColor *hideColor;
+    UIColor *pickedColor;
+    UILabel* hexColorLabel;
 }
 @property (nonatomic, retain) NSNumber *modeNum;
 @property (nonatomic, retain) NSNumber *touchDownPosX;
@@ -41,14 +46,17 @@
 @property (nonatomic, retain) NSNumber *holeRadius;
 @property (nonatomic, retain) NSMutableArray *circleArray;
 
+/*
 -(IBAction)lineModeButtonTouched;
 -(IBAction)circleModeButtonTouched;
--(IBAction)undoModeButtonTouched;
 -(IBAction)holeModeButtonTouched;
+*/
+-(IBAction)undoModeButtonTouched;
 -(IBAction)originalModeButtonTouched;
 -(IBAction)fillModeButtonTouched;
 -(IBAction)specialModeButtonTouched;
 -(IBAction)cameraButtonTouched;
 -(IBAction)actionButtonTouched;
+-(IBAction)colorChangeButtonTouched;
 
 @end

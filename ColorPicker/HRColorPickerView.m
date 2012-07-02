@@ -42,7 +42,7 @@
 
 @implementation HRColorPickerView
 
-@synthesize delegate;
+//@synthesize delegate;
 
 + (HRColorPickerStyle)defaultStyle
 {
@@ -478,10 +478,10 @@
 
 
 - (void)dealloc{
-    [_brightnessCursor release];
-    [_colorCursor release];
+    //[_brightnessCursor release];
+    //[_colorCursor release];
     CGImageRelease(_brightnessPickerShadowImage);
-    [super dealloc];
+    //[super dealloc];
 }
 
 @end

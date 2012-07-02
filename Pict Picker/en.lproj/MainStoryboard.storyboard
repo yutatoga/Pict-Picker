@@ -33,6 +33,12 @@
                                     <constraint firstAttribute="height" constant="44" id="V4H-B9-5sH"/>
                                 </constraints>
                                 <items>
+                                    <barButtonItem title="Color" id="ewQ-2U-4xN">
+                                        <connections>
+                                            <action selector="colorChangeButtonTouched" destination="g4l-vQ-gS1" id="SGK-Rk-QlO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9Na-Vg-6vL"/>
                                     <barButtonItem title="Special" id="i0K-oM-XvK">
                                         <connections>
                                             <action selector="specialModeButtonTouched" destination="g4l-vQ-gS1" id="HA4-db-dz3"/>
@@ -43,19 +49,18 @@
                                             <action selector="fillModeButtonTouched" destination="g4l-vQ-gS1" id="MYk-cb-hPv"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ov9-YX-ZcQ"/>
                                     <barButtonItem title="Original" id="DuU-Hq-460">
                                         <connections>
                                             <action selector="originalModeButtonTouched" destination="g4l-vQ-gS1" id="0dt-ar-qLD"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="23z-vo-L5m"/>
                                     <barButtonItem systemItem="undo" id="4gP-yx-o47">
                                         <connections>
                                             <action selector="undoModeButtonTouched" destination="g4l-vQ-gS1" id="RbF-eT-Ql9"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="tintColor" red="1" green="0.49889742943548387" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Please touch here!" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="6N6-TH-feT">
                                 <constraints>
@@ -93,6 +98,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="colorChangeButton" destination="ewQ-2U-4xN" id="fFm-B8-h2x"/>
                         <outlet property="fillModeButton" destination="PTi-Mi-4If" id="LKH-sX-hy6"/>
                         <outlet property="firstGuideLabel" destination="6N6-TH-feT" id="4Uu-Zu-59q"/>
                         <outlet property="myToolbar" destination="fk4-hU-31y" id="QjC-y5-exJ"/>
@@ -110,6 +116,39 @@
     <resources>
         <image name="ki.jpg" width="1280" height="1024"/>
     </resources>
+    <classes>
+        <class className="MasterViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="actionButtonTouched"/>
+                <relationship kind="action" name="cameraButtonTouched"/>
+                <relationship kind="action" name="circleModeButtonTouched"/>
+                <relationship kind="action" name="colorChangeButtonTouched"/>
+                <relationship kind="action" name="fillModeButtonTouched"/>
+                <relationship kind="action" name="holeModeButtonTouched"/>
+                <relationship kind="action" name="lineModeButtonTouched"/>
+                <relationship kind="action" name="originalModeButtonTouched"/>
+                <relationship kind="action" name="specialModeButtonTouched"/>
+                <relationship kind="action" name="undoModeButtonTouched"/>
+                <relationship kind="outlet" name="circleModeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="colorChangeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="fillModeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="firstGuideLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="holeModeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="lineModeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="myCentralLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myRadiusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="originalModeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="pictImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="specialModeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="undoModeButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

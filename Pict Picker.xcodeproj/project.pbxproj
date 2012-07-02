@@ -21,7 +21,18 @@
 		8DBDD8FE15A04DF9008CA9F3 /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDD8FD15A04DF9008CA9F3 /* UIImage+StackBlur.m */; };
 		8DBDD90115A06014008CA9F3 /* umika.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDD90015A06014008CA9F3 /* umika.jpg */; };
 		8DBDD90315A0601F008CA9F3 /* ki.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDD90215A0601F008CA9F3 /* ki.jpg */; };
-		8DBDD90A15A0919D008CA9F3 /* pickPicker_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDD90915A0919D008CA9F3 /* pickPicker_1.png */; };
+		8DBDD96D15A0AED7008CA9F3 /* HRBrightnessCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDD96215A0AED7008CA9F3 /* HRBrightnessCursor.m */; };
+		8DBDD96E15A0AED7008CA9F3 /* HRCgUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDD96415A0AED7008CA9F3 /* HRCgUtil.m */; };
+		8DBDD96F15A0AED7008CA9F3 /* HRColorCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDD96615A0AED7008CA9F3 /* HRColorCursor.m */; };
+		8DBDD97015A0AED7008CA9F3 /* HRColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDD96815A0AED7008CA9F3 /* HRColorPickerView.m */; };
+		8DBDD97115A0AED7008CA9F3 /* HRColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDD96A15A0AED7008CA9F3 /* HRColorPickerViewController.m */; };
+		8DBDD97215A0AED7008CA9F3 /* HRColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDD96C15A0AED7008CA9F3 /* HRColorUtil.m */; };
+		8DBDD97615A163C8008CA9F3 /* pictPicker_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDD97515A163C8008CA9F3 /* pictPicker_1.png */; };
+		8DBDD98015A20D58008CA9F3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBDD97F15A20D58008CA9F3 /* AudioToolbox.framework */; };
+		8DBDD98415A2169F008CA9F3 /* familymart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDD98315A2169F008CA9F3 /* familymart.mp3 */; };
+		8DBDD99615A220D2008CA9F3 /* ah.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDD99315A220D2008CA9F3 /* ah.wav */; };
+		8DBDD99715A220D2008CA9F3 /* an.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDD99415A220D2008CA9F3 /* an.wav */; };
+		8DBDD99815A220D2008CA9F3 /* wow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDD99515A220D2008CA9F3 /* wow.wav */; };
 		8DCCDBB4159F27E100DE4EB9 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCCDBB3159F27E100DE4EB9 /* CoreImage.framework */; };
 		8DE741A6159FD54F00EC402B /* rina.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8DE741A5159FD54F00EC402B /* rina.jpg */; };
 /* End PBXBuildFile section */
@@ -47,7 +58,24 @@
 		8DBDD8FD15A04DF9008CA9F3 /* UIImage+StackBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+StackBlur.m"; sourceTree = "<group>"; };
 		8DBDD90015A06014008CA9F3 /* umika.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = umika.jpg; sourceTree = "<group>"; };
 		8DBDD90215A0601F008CA9F3 /* ki.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ki.jpg; sourceTree = "<group>"; };
-		8DBDD90915A0919D008CA9F3 /* pickPicker_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickPicker_1.png; sourceTree = "<group>"; };
+		8DBDD96115A0AED7008CA9F3 /* HRBrightnessCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRBrightnessCursor.h; sourceTree = "<group>"; };
+		8DBDD96215A0AED7008CA9F3 /* HRBrightnessCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRBrightnessCursor.m; sourceTree = "<group>"; };
+		8DBDD96315A0AED7008CA9F3 /* HRCgUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRCgUtil.h; sourceTree = "<group>"; };
+		8DBDD96415A0AED7008CA9F3 /* HRCgUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRCgUtil.m; sourceTree = "<group>"; };
+		8DBDD96515A0AED7008CA9F3 /* HRColorCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRColorCursor.h; sourceTree = "<group>"; };
+		8DBDD96615A0AED7008CA9F3 /* HRColorCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRColorCursor.m; sourceTree = "<group>"; };
+		8DBDD96715A0AED7008CA9F3 /* HRColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRColorPickerView.h; sourceTree = "<group>"; };
+		8DBDD96815A0AED7008CA9F3 /* HRColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRColorPickerView.m; sourceTree = "<group>"; };
+		8DBDD96915A0AED7008CA9F3 /* HRColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRColorPickerViewController.h; sourceTree = "<group>"; };
+		8DBDD96A15A0AED7008CA9F3 /* HRColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRColorPickerViewController.m; sourceTree = "<group>"; };
+		8DBDD96B15A0AED7008CA9F3 /* HRColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRColorUtil.h; sourceTree = "<group>"; };
+		8DBDD96C15A0AED7008CA9F3 /* HRColorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRColorUtil.m; sourceTree = "<group>"; };
+		8DBDD97515A163C8008CA9F3 /* pictPicker_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pictPicker_1.png; sourceTree = "<group>"; };
+		8DBDD97F15A20D58008CA9F3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8DBDD98315A2169F008CA9F3 /* familymart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = familymart.mp3; sourceTree = "<group>"; };
+		8DBDD99315A220D2008CA9F3 /* ah.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ah.wav; sourceTree = "<group>"; };
+		8DBDD99415A220D2008CA9F3 /* an.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = an.wav; sourceTree = "<group>"; };
+		8DBDD99515A220D2008CA9F3 /* wow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wow.wav; sourceTree = "<group>"; };
 		8DCCDBB3159F27E100DE4EB9 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		8DE741A5159FD54F00EC402B /* rina.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rina.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DBDD98015A20D58008CA9F3 /* AudioToolbox.framework in Frameworks */,
 				8DCCDBB4159F27E100DE4EB9 /* CoreImage.framework in Frameworks */,
 				8DAB9DB8159F1D500066D3F9 /* QuartzCore.framework in Frameworks */,
 				8D9CAE6915980FC5004DB1A0 /* MobileCoreServices.framework in Frameworks */,
@@ -72,6 +101,7 @@
 		8D59D0C5158FBB6C0007A03A = {
 			isa = PBXGroup;
 			children = (
+				8DBDD96015A0AED7008CA9F3 /* ColorPicker */,
 				8D59D0DA158FBB6C0007A03A /* Pict Picker */,
 				8D59D0D3158FBB6C0007A03A /* Frameworks */,
 				8D59D0D1158FBB6C0007A03A /* Products */,
@@ -89,6 +119,7 @@
 		8D59D0D3158FBB6C0007A03A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DBDD97F15A20D58008CA9F3 /* AudioToolbox.framework */,
 				8DCCDBB3159F27E100DE4EB9 /* CoreImage.framework */,
 				8DAB9DB7159F1D500066D3F9 /* QuartzCore.framework */,
 				8D9CAE6815980FC5004DB1A0 /* MobileCoreServices.framework */,
@@ -117,7 +148,11 @@
 		8D59D0DB158FBB6C0007A03A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8DBDD90915A0919D008CA9F3 /* pickPicker_1.png */,
+				8DBDD99315A220D2008CA9F3 /* ah.wav */,
+				8DBDD99415A220D2008CA9F3 /* an.wav */,
+				8DBDD99515A220D2008CA9F3 /* wow.wav */,
+				8DBDD98315A2169F008CA9F3 /* familymart.mp3 */,
+				8DBDD97515A163C8008CA9F3 /* pictPicker_1.png */,
 				8DBDD90215A0601F008CA9F3 /* ki.jpg */,
 				8DBDD90015A06014008CA9F3 /* umika.jpg */,
 				8DE741A5159FD54F00EC402B /* rina.jpg */,
@@ -128,6 +163,25 @@
 				8D59D0E2158FBB6C0007A03A /* Pict Picker-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8DBDD96015A0AED7008CA9F3 /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				8DBDD96115A0AED7008CA9F3 /* HRBrightnessCursor.h */,
+				8DBDD96215A0AED7008CA9F3 /* HRBrightnessCursor.m */,
+				8DBDD96315A0AED7008CA9F3 /* HRCgUtil.h */,
+				8DBDD96415A0AED7008CA9F3 /* HRCgUtil.m */,
+				8DBDD96515A0AED7008CA9F3 /* HRColorCursor.h */,
+				8DBDD96615A0AED7008CA9F3 /* HRColorCursor.m */,
+				8DBDD96715A0AED7008CA9F3 /* HRColorPickerView.h */,
+				8DBDD96815A0AED7008CA9F3 /* HRColorPickerView.m */,
+				8DBDD96915A0AED7008CA9F3 /* HRColorPickerViewController.h */,
+				8DBDD96A15A0AED7008CA9F3 /* HRColorPickerViewController.m */,
+				8DBDD96B15A0AED7008CA9F3 /* HRColorUtil.h */,
+				8DBDD96C15A0AED7008CA9F3 /* HRColorUtil.m */,
+			);
+			path = ColorPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +241,11 @@
 				8DE741A6159FD54F00EC402B /* rina.jpg in Resources */,
 				8DBDD90115A06014008CA9F3 /* umika.jpg in Resources */,
 				8DBDD90315A0601F008CA9F3 /* ki.jpg in Resources */,
-				8DBDD90A15A0919D008CA9F3 /* pickPicker_1.png in Resources */,
+				8DBDD97615A163C8008CA9F3 /* pictPicker_1.png in Resources */,
+				8DBDD98415A2169F008CA9F3 /* familymart.mp3 in Resources */,
+				8DBDD99615A220D2008CA9F3 /* ah.wav in Resources */,
+				8DBDD99715A220D2008CA9F3 /* an.wav in Resources */,
+				8DBDD99815A220D2008CA9F3 /* wow.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +260,12 @@
 				8D59D0E5158FBB6C0007A03A /* AppDelegate.m in Sources */,
 				8D59D0F6158FBC350007A03A /* MasterViewController.m in Sources */,
 				8DBDD8FE15A04DF9008CA9F3 /* UIImage+StackBlur.m in Sources */,
+				8DBDD96D15A0AED7008CA9F3 /* HRBrightnessCursor.m in Sources */,
+				8DBDD96E15A0AED7008CA9F3 /* HRCgUtil.m in Sources */,
+				8DBDD96F15A0AED7008CA9F3 /* HRColorCursor.m in Sources */,
+				8DBDD97015A0AED7008CA9F3 /* HRColorPickerView.m in Sources */,
+				8DBDD97115A0AED7008CA9F3 /* HRColorPickerViewController.m in Sources */,
+				8DBDD97215A0AED7008CA9F3 /* HRColorUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

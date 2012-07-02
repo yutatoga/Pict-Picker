@@ -7,7 +7,7 @@
 //
 
 #import "MasterViewController.h"
-
+#import "HRColorUtil.h"
 @interface MasterViewController ()
 
 @end
@@ -23,39 +23,210 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    NSLog(@"viewWillAppear");
+    CGFloat instantHue;
+    CGFloat instantSaturation;
+    CGFloat instantBrightness;
+    CGFloat instantAlpha;
+    [pickedColor getHue:&instantHue saturation:&instantSaturation brightness:&instantBrightness alpha:&instantAlpha];
+    NSLog(@"hidecolor H:%f S:%f V:%f A:%f",instantHue, instantSaturation, instantBrightness, instantAlpha);
+    UIColor *instantBarColor = [UIColor colorWithHue:instantHue saturation:instantSaturation brightness:instantBrightness*0.9 alpha:instantAlpha];
+    self.navigationController.navigationBar.tintColor = instantBarColor;
+    
+    //title design
+    UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    titleLabel.text = @"Pict Picker";
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.font = [UIFont boldSystemFontOfSize:20.0];
+    
+    titleLabel.shadowColor = [UIColor colorWithHue:instantHue saturation:instantSaturation brightness:instantBrightness*0.4 alpha:instantAlpha];
+    titleLabel.shadowOffset = CGSizeMake(0.0f, -1.0f);
+
+    /*
+    if (instantBrightness > 0.5) {
+        titleLabel.textColor = [UIColor blackColor]; // please customize
+    }else{
+        titleLabel.textColor = [UIColor whiteColor]; // please customize
+    }
+    */
+    titleLabel.textColor = [UIColor whiteColor];
+
+    self.navigationItem.titleView = titleLabel;
+    [titleLabel sizeToFit];
+    
+    myToolbar.tintColor = instantBarColor;
+    if (fillModeButton.tintColor != nil) {
+        NSLog(@"changeColor by fill");
+        [self buttonOnVisual:fillModeButton :pickedColor];
+        //change color and fill
+        //1.クリア
+        UIGraphicsBeginImageContext(canvas.frame.size);
+        canvas.image = nil;
+        UIGraphicsEndImageContext();
+        //2.塗りつぶす
+        UIGraphicsBeginImageContext(canvas.frame.size);
+        CGFloat instantRed;
+        CGFloat instantGreen;
+        CGFloat instantBlue;
+        CGFloat instantAlpha;
+        // UIColor 型の color から RGBA の値を取得します。
+        [hideColor getRed:&instantRed green:&instantGreen blue:&instantBlue alpha:&instantAlpha];
+        //hideColorをべた塗りに
+        CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, 1.0);
+        // start at origin
+        CGContextMoveToPoint (UIGraphicsGetCurrentContext(), CGRectGetMinX(canvas.frame), CGRectGetMinY(canvas.frame));
+        // add bottom edge
+        CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMaxX(canvas.frame), CGRectGetMinY(canvas.frame));
+        // add right edge
+        CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMaxX(canvas.frame), CGRectGetMaxY(canvas.frame));
+        // add top edge
+        CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMinX(canvas.frame), CGRectGetMaxY(canvas.frame));
+        // add left edge and close
+        CGContextClosePath (UIGraphicsGetCurrentContext());
+        CGContextFillPath(UIGraphicsGetCurrentContext());
+        canvas.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        //3.arrayからholeをよみとって、描画
+        for (int i=0; i<self.circleArray.count; i++) {
+            NSLog(@"for %d", i);
+            //hole
+            // 描画領域をcanvasの大きさで生成
+            UIGraphicsBeginImageContext(canvas.frame.size);
+            // canvasにセットされている画像（UIImage）を描画
+            [canvas.image drawInRect:
+             CGRectMake(0, 0, canvas.frame.size.width, canvas.frame.size.height)];
+            //ここに書く
+            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear);//important
+            
+            CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 1.0);
+            CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0.0, 0.0, 0.0, 1.0);//important
+            CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), CGRectMake([[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].x - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].y - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2,
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2));
+            CGContextStrokePath(UIGraphicsGetCurrentContext());
+            
+            CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), CGRectMake([[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].x - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].y - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2,
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2));
+            CGContextFillPath(UIGraphicsGetCurrentContext());
+            //
+            //描画
+            canvas.image = UIGraphicsGetImageFromCurrentImageContext();
+            // 描画領域のクリア
+            UIGraphicsEndImageContext();
+            
+        }
+    }
+    else if(specialModeButton.tintColor == nil && originalModeButton.tintColor == nil){
+        NSLog(@"change color by transparent");
+        //change color and transparerent
+        //1.クリア
+        UIGraphicsBeginImageContext(canvas.frame.size);
+        canvas.image = nil;
+        UIGraphicsEndImageContext();
+        //2.塗りつぶす
+        UIGraphicsBeginImageContext(canvas.frame.size);
+        CGFloat instantRed;
+        CGFloat instantGreen;
+        CGFloat instantBlue;
+        CGFloat instantAlpha;
+        // UIColor 型の color から RGBA の値を取得します。
+        [hideColor getRed:&instantRed green:&instantGreen blue:&instantBlue alpha:&instantAlpha];
+        //hideColorを半透明に
+        CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, instantAlpha);
+        // start at origin
+        CGContextMoveToPoint (UIGraphicsGetCurrentContext(), CGRectGetMinX(canvas.frame), CGRectGetMinY(canvas.frame));
+        // add bottom edge
+        CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMaxX(canvas.frame), CGRectGetMinY(canvas.frame));
+        // add right edge
+        CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMaxX(canvas.frame), CGRectGetMaxY(canvas.frame));
+        // add top edge
+        CGContextAddLineToPoint (UIGraphicsGetCurrentContext(), CGRectGetMinX(canvas.frame), CGRectGetMaxY(canvas.frame));
+        // add left edge and close
+        CGContextClosePath (UIGraphicsGetCurrentContext());
+        CGContextFillPath(UIGraphicsGetCurrentContext());
+        canvas.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        //3.arrayからholeをよみとって、描画
+        for (int i=0; i<self.circleArray.count; i++) {
+            NSLog(@"for %d", i);
+            //hole
+            // 描画領域をcanvasの大きさで生成
+            UIGraphicsBeginImageContext(canvas.frame.size);
+            // canvasにセットされている画像（UIImage）を描画
+            [canvas.image drawInRect:
+             CGRectMake(0, 0, canvas.frame.size.width, canvas.frame.size.height)];
+            //ここに書く
+            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear);//important
+            
+            CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 1.0);
+            CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0.0, 0.0, 0.0, 1.0);//important
+            CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), CGRectMake([[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].x - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].y - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2,
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2));
+            CGContextStrokePath(UIGraphicsGetCurrentContext());
+            
+            CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), CGRectMake([[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].x - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"pos"] CGPointValue].y - [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue],
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2,
+                                                                                [[[self.circleArray objectAtIndex:i] objectForKey:@"radius"] floatValue] * 2));
+            CGContextFillPath(UIGraphicsGetCurrentContext());
+            //
+            //描画
+            canvas.image = UIGraphicsGetImageFromCurrentImageContext();
+            // 描画領域のクリア
+            UIGraphicsEndImageContext();
+        }
+    }else if(originalModeButton.tintColor != nil){
+        [self buttonOnVisual:originalModeButton :pickedColor];
+    }else if(specialModeButton.tintColor != nil){
+        [self buttonOnVisual:specialModeButton :pickedColor];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
     //OtO added
+    NSLog(@"viewDidLoad");    
     // キャンバスのインスタンスを生成
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:255/255.0 green:127/255.0 blue:127/255.0 alpha:1];
-    self.view.backgroundColor = [UIColor blackColor];
+    pickedColor = self.navigationController.navigationBar.tintColor;//only first time
+    //myToolbar.tintColor = pickedColor;//set in viewWillAppear
+    self.view.backgroundColor = [UIColor blackColor];//please customize
     canvas = [[UIImageView alloc] initWithImage:nil];
     canvas.backgroundColor= [UIColor colorWithWhite:1 alpha:0];
     canvas.frame = CGRectMake(0, 0, 320, 480-44-44-20);
+     
     //canvas.contentMode = UIViewContentModeScaleAspectFit;//xibとそろえておく!!
     //canvas.clipsToBounds = YES;
     NSLog(@"frame:%f bounds:%f frameOX:%f frameOY:%f boundsOX:%f boundsOY:%f", self.view.frame.size.height, self.view.bounds.size.height, self.view.frame.origin.x, self.view.frame.origin.y, self.view.bounds.origin.x, self.view.bounds.origin.y);
     [self.view insertSubview:canvas aboveSubview:self.view];
 
     
-    self.modeNum = [[NSNumber alloc] initWithInt:2];//2 is hole mode
+    //self.modeNum = [[NSNumber alloc] initWithInt:2];//2 is hole mode
     self.circleArray = [[NSMutableArray alloc] init];
     lineModeButton.tintColor = [UIColor blueColor];
     isKeepTouching = false;
+
+    //fill canvas
+    //color setting
     hideColor = [[UIColor alloc] initWithRed:1.0 green:0.5 blue:0.5 alpha:0.5];
-    
-    //fill
-    NSLog(@"fillModeButtonTouched");
-    UIGraphicsBeginImageContext(canvas.frame.size);
     CGFloat instantRed;
     CGFloat instantGreen;
     CGFloat instantBlue;
     CGFloat instantAlpha;
     // UIColor 型の color から RGBA の値を取得します。
     [hideColor getRed:&instantRed green:&instantGreen blue:&instantBlue alpha:&instantAlpha];
+    //fill by fill color
+    UIGraphicsBeginImageContext(canvas.frame.size);
     CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, instantAlpha);
     // start at origin
     CGContextMoveToPoint (UIGraphicsGetCurrentContext(), CGRectGetMinX(canvas.frame), CGRectGetMinY(canvas.frame));
@@ -73,6 +244,11 @@
     specialIsVirgin = true;
     //?????
     //[originalModeButton initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(touchDown:) ];
+    //boot sound
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"familymart" ofType:@"mp3"];
+    //パスからNSURLを取得
+    NSURL *fileURL = [NSURL fileURLWithPath:path];
+    [self playSystemSound:fileURL];
 
 }
 
@@ -97,7 +273,7 @@
     self.touchDownPosX = [[NSNumber alloc] initWithFloat:touchPoint.x];
     self.touchDownPosY = [[NSNumber alloc] initWithFloat:touchPoint.y];
     myCentralLabel.text = [NSString stringWithFormat:@"Central: X:%f Y:%f", self.touchDownPosX.floatValue, self.touchDownPosY.floatValue];
-    if (self.modeNum.intValue == 2) {
+    if (originalModeButton.tintColor == nil) {
         NSLog(@"hole effect comes!");
         //hole
         // 描画領域をcanvasの大きさで生成
@@ -116,6 +292,8 @@
         UIGraphicsEndImageContext();
         // 現在のタッチ座標を次の開始座標にセット
         touchPoint = currentPoint;
+        
+        
     }
 }
 
@@ -128,6 +306,7 @@
     CGPoint currentPoint = [touch locationInView:canvas];
     self.holeRadius = [NSNumber numberWithFloat: sqrt(pow((currentPoint.x-self.touchDownPosX.floatValue), 2)+pow(currentPoint.y-self.touchDownPosY.floatValue, 2))];    
     myRadiusLabel.text = [NSString stringWithFormat:@"Radius: %f", sqrt(pow((currentPoint.x-self.touchDownPosX.floatValue), 2)+pow(currentPoint.y-self.touchDownPosY.floatValue, 2))];
+    /*
     if (self.modeNum.intValue == 0) {
         //line
         // 描画領域をcanvasの大きさで生成
@@ -174,7 +353,8 @@
         // 現在のタッチ座標を次の開始座標にセット
         touchPoint = currentPoint;
     }
-    else if(self.modeNum.intValue == 2){
+    */
+    if(originalModeButton.tintColor == nil){
         //hole effect
         NSLog(@"hole effect comes!");
         canvas.image = myImage;
@@ -216,9 +396,7 @@
     isKeepTouching = false;
     UITouch *touch = [touches anyObject];
     touchPoint = [touch locationInView:canvas];
-   
-    
-    if (self.modeNum.intValue == 2) {
+    if (originalModeButton.tintColor == nil) {
         //hole mode
         NSLog(@"hole effect comes!");
         NSDictionary *myDict= [NSDictionary dictionaryWithObjectsAndKeys:
@@ -259,11 +437,18 @@
         UIGraphicsEndImageContext();
         // 現在のタッチ座標を次の開始座標にセット
         touchPoint = currentPoint;
+        
+        
+        //sexy sound
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"an" ofType:@"wav"];
+        //パスからNSURLを取得
+        NSURL *fileURL = [NSURL fileURLWithPath:path];
+        [self playSystemSound:fileURL];
     }
 }
 
 
-
+/*
 -(IBAction)lineModeButtonTouched{
     if (self.modeNum.intValue != 0) {
         self.modeNum = [[NSNumber alloc] initWithInt:0];
@@ -288,6 +473,7 @@
         holeModeButton.tintColor = [UIColor blueColor];
     }
 }
+ */
 -(IBAction)undoModeButtonTouched{
     //undo
     NSLog(@"undoModeButtonTouched");
@@ -305,7 +491,7 @@
     CGFloat instantAlpha;
     // UIColor 型の color から RGBA の値を取得します。
     [hideColor getRed:&instantRed green:&instantGreen blue:&instantBlue alpha:&instantAlpha];
-    if(fillModeButton.tintColor == [UIColor blueColor]){
+    if(fillModeButton.tintColor != nil){
         //hideColorをべた塗りに
         CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, 1.0);
     }else{
@@ -363,15 +549,15 @@
 
 -(IBAction)originalModeButtonTouched{
     NSLog(@"originalModeButtonTouched");
-    if(originalModeButton.tintColor == [UIColor blueColor]){
-        originalModeButton.tintColor = nil;
+    if(originalModeButton.tintColor != nil){
+        [self buttonOffVisual:originalModeButton :pickedColor];
         //back to editing view
         //1.クリア
         UIGraphicsBeginImageContext(canvas.frame.size);
         canvas.image = nil;
         UIGraphicsEndImageContext();
         //2.塗りつぶす
-        if (specialModeButton.tintColor != [UIColor blueColor]) {
+        if (specialModeButton.tintColor == nil) {
             UIGraphicsBeginImageContext(canvas.frame.size);
             CGFloat instantRed;
             CGFloat instantGreen;
@@ -379,7 +565,7 @@
             CGFloat instantAlpha;
             // UIColor 型の color から RGBA の値を取得します。
             [hideColor getRed:&instantRed green:&instantGreen blue:&instantBlue alpha:&instantAlpha];
-            if(fillModeButton.tintColor == [UIColor blueColor]){
+            if(fillModeButton.tintColor != nil){
                 //hideColorをべた塗りに
                 CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, 1.0);
             }else{
@@ -433,7 +619,9 @@
             UIGraphicsEndImageContext();
         }
     }else{
-        originalModeButton.tintColor = [UIColor blueColor];
+        [self buttonOnVisual:originalModeButton :pickedColor];
+        [self buttonOffVisual:specialModeButton :pickedColor];
+        [self buttonOffVisual:fillModeButton :pickedColor];
         //show original
         canvas.image = nil;
     }
@@ -453,18 +641,26 @@
     CGFloat instantAlpha;
     // UIColor 型の color から RGBA の値を取得します。
     [hideColor getRed:&instantRed green:&instantGreen blue:&instantBlue alpha:&instantAlpha];
-    if(fillModeButton.tintColor == [UIColor blueColor]){
+    if(fillModeButton.tintColor != nil){
         //show editing view
-        fillModeButton.tintColor = nil;
+        [self buttonOffVisual:fillModeButton :pickedColor];
+        [self buttonOffVisual:originalModeButton :pickedColor];
         //hideColorを半透明に
-        CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, instantAlpha);        
+        CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, instantAlpha);
     }else{
         //show completion
-        fillModeButton.tintColor = [UIColor blueColor];
-        specialModeButton.tintColor = nil;
-        originalModeButton.tintColor = nil;
+        [self buttonOnVisual:fillModeButton :pickedColor];
+        [self buttonOffVisual:specialModeButton :pickedColor];
+        [self buttonOffVisual:originalModeButton :pickedColor];
         //hideColorをべた塗りに
         CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), instantRed, instantGreen, instantBlue, 1.0);
+        //sexy sound
+        /*
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"ah" ofType:@"wav"];
+        //パスからNSURLを取得
+        NSURL *fileURL = [NSURL fileURLWithPath:path];
+        [self playSystemSound:fileURL];
+        */
     }
     // start at origin
     CGContextMoveToPoint (UIGraphicsGetCurrentContext(), CGRectGetMinX(canvas.frame), CGRectGetMinY(canvas.frame));
@@ -616,10 +812,14 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
         if (editedImage) {
             imageToSave = editedImage;
             pictImageView.image = editedImage;
+            //update special image
+            specialIsVirgin = true;
         } else {
             imageToSave = originalImage;
             pictImageView.image = originalImage;
-
+            //update special image
+            //specialImage = [pictImageView.image stackBlur:150];
+            specialIsVirgin = true;
         }
         // （オリジナルまたは編集後の）新規画像を「カメラロール(Camera Roll)」に保存する
         UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
@@ -953,9 +1153,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
         NSLog(@"contentmode%d", canvas.contentMode);
     }
     //specialモードにするか、editモードに戻るのか
-    if(specialModeButton.tintColor == [UIColor blueColor]){
+    if(specialModeButton.tintColor != nil){
         //show editing view
-        specialModeButton.tintColor = nil;
+        [self buttonOffVisual:specialModeButton :pickedColor];
         //1.クリア
         UIGraphicsBeginImageContext(canvas.frame.size);
         canvas.image = nil;
@@ -984,12 +1184,16 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
         canvas.image = UIGraphicsGetImageFromCurrentImageContext();    
         UIGraphicsEndImageContext();
     }else{
-        //show special mode
-        specialModeButton.tintColor = [UIColor blueColor];
-        fillModeButton.tintColor = nil;
-        originalModeButton.tintColor = nil;
+        [self buttonOnVisual:specialModeButton :pickedColor];
+        [self buttonOffVisual:fillModeButton :pickedColor];
+        [self buttonOffVisual:originalModeButton :pickedColor];
         //処理されたspecialImageを描画
         canvas.image = specialImage;
+        //sexy sound
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"wow" ofType:@"wav"];
+        //パスからNSURLを取得
+        NSURL *fileURL = [NSURL fileURLWithPath:path];
+        [self PlayAlertSound:fileURL];
     }
     //arrayからholeをよみとって、描画
     for (int i=0; i<self.circleArray.count; i++) {
@@ -1024,8 +1228,102 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
         
     }
 }
+//color picket
+- (void)openColorPicker{
+    HRColorPickerViewController* controller;
+    controller = [HRColorPickerViewController fullColorPickerViewControllerWithColor:[self.view backgroundColor]];
+    controller.delegate = self;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+- (void)setSelectedColor:(UIColor*)color{
+    [self.view setBackgroundColor:color];
+    CGFloat instantRed;
+    CGFloat instantGreen;
+    CGFloat instantBlue;
+    CGFloat instantAlpha;
+    // UIColor 型の color から RGBA の値を取得します。
+    [color getRed:&instantRed green:&instantGreen blue:&instantBlue alpha:&instantAlpha];
+    hideColor = [UIColor colorWithRed:instantRed green:instantGreen blue:instantBlue alpha:0.5];
+    pickedColor = color;
+    NSLog(@"color change!");
+    [hexColorLabel setText:[NSString stringWithFormat:@"#%06x",HexColorFromUIColor(color)]];
+}
 
-//
+-(IBAction)colorChangeButtonTouched{
+    [self setSelectedColor:pickedColor];
+    [self openColorPicker];
+    
+}
+
+-(void)buttonOnVisual:(UIBarButtonItem*) buttonitem :(UIColor*)color{
+    //change uibarbuttonitem design for "ON"
+    //show special mode
+    CGFloat instantHue;
+    CGFloat instantSaturation;
+    CGFloat instantBrightness;
+    CGFloat instantAlpha;
+    [color getHue:&instantHue saturation:&instantSaturation brightness:&instantBrightness alpha:&instantAlpha];
+    buttonitem.tintColor = [UIColor colorWithHue:instantHue saturation:instantSaturation*0.1 brightness:1.0 alpha:instantAlpha];
+    [buttonitem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                        [UIFont boldSystemFontOfSize:0.0], UITextAttributeFont,
+                                        hideColor, UITextAttributeTextColor,
+                                        [UIColor colorWithHue:instantHue saturation:instantSaturation brightness:instantBrightness*0.5 alpha:0.7], UITextAttributeTextShadowColor,
+                                        CGSizeMake(0.0f, -1.0f), UITextAttributeTextShadowOffset,
+                                        nil] forState:UIControlStateNormal];
+}
+
+-(void)buttonOffVisual:(UIBarButtonItem*) buttonitem :(UIColor*)color{
+    //change uibarbuttonitem design for "OFF"
+    //show special mode
+    CGFloat instantHue;
+    CGFloat instantSaturation;
+    CGFloat instantBrightness;
+    CGFloat instantAlpha;
+    [color getHue:&instantHue saturation:&instantSaturation brightness:&instantBrightness alpha:&instantAlpha];
+    buttonitem.tintColor = nil;
+    [buttonitem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                        
+                                        [UIColor grayColor], UITextAttributeTextShadowColor,
+                                        [UIColor whiteColor], UITextAttributeTextColor,
+                                        CGSizeMake(0.0f, -1.0f), UITextAttributeTextShadowOffset,
+                                        nil] forState:UIControlStateNormal];
+}
+//sound
+-(void)playSystemSound:(NSURL *)fileURL{
+    SystemSoundID mySystemSoundID;
+    //[3] SystemSoundIDを作成する
+    OSStatus err = AudioServicesCreateSystemSoundID((__bridge CFURLRef) fileURL, &mySystemSoundID);
+    //[4]エラーがあった場合はreturnで中止
+    if(err){
+        NSLog(@"AudioServicesCreateSystemSoundID err = %li",err);
+        return;
+    }
+    AudioServicesPlaySystemSound(mySystemSoundID);//just sound
+    //AudioServicesPlayAlertSound(mySystemSoundID);//sound + vibration
+}
+
+-(void)PlayAlertSound:(NSURL *)fileURL{
+    SystemSoundID mySystemSoundID;
+    //[3] SystemSoundIDを作成する
+    OSStatus err = AudioServicesCreateSystemSoundID((__bridge CFURLRef) fileURL, &mySystemSoundID);
+    //[4]エラーがあった場合はreturnで中止
+    if(err){
+        NSLog(@"AudioServicesCreateSystemSoundID err = %li",err);
+        return;
+    }
+    //AudioServicesPlaySystemSound(mySystemSoundID);//just sound
+    AudioServicesPlayAlertSound(mySystemSoundID);//sound + vibration
+}
+
+
+
+
+
+
+
+
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

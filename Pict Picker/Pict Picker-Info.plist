@@ -15,6 +15,7 @@
 			<key>CFBundleIconFiles</key>
 			<array>
 				<string>pickPicker_1.png</string>
+				<string>pictPicker_1.png</string>
 			</array>
 		</dict>
 	</dict>
