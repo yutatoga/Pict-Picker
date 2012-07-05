@@ -14,6 +14,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "UIImage+StackBlur.h"
 #import "HRColorPickerViewController.h"
+#import "UIImage+fixOrientation.h"
+#import <AVFoundation/AVFoundation.h>
 @interface MasterViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, HRColorPickerViewControllerDelegate>{
     
     //OtO added
@@ -39,6 +41,12 @@
     UIColor *hideColor;
     UIColor *pickedColor;
     UILabel* hexColorLabel;
+    //loading
+    UIView *loadingView;
+    UIActivityIndicatorView * myActivityIndicatorView;
+    BOOL firstVirgin;
+    //player
+    AVAudioPlayer *player;
 }
 @property (nonatomic, retain) NSNumber *modeNum;
 @property (nonatomic, retain) NSNumber *touchDownPosX;

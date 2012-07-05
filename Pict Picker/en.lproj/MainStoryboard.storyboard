@@ -30,7 +30,7 @@
                             <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ki.jpg" id="v2g-VW-Nnk"/>
                             <toolbar translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fk4-hU-31y">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="V4H-B9-5sH"/>
+                                    <constraint firstAttribute="height" constant="44" id="cBi-GS-04K"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem title="Color" id="ewQ-2U-4xN">
@@ -62,24 +62,24 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Please touch here!" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="6N6-TH-feT">
+                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Please touch and drag here!" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="6N6-TH-feT">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="j7i-HO-fkg"/>
+                                    <constraint firstAttribute="height" constant="47" id="Ril-eH-e4f"/>
+                                    <constraint firstAttribute="width" constant="403" id="sbs-wg-8DE"/>
                                 </constraints>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6N6-TH-feT" firstAttribute="centerY" secondItem="v2g-VW-Nnk" secondAttribute="centerY" type="default" id="Bvt-gC-uca"/>
                             <constraint firstItem="v2g-VW-Nnk" firstAttribute="leading" secondItem="6O4-t7-1ba" secondAttribute="leading" type="default" id="CzE-XX-XMf"/>
                             <constraint firstItem="fk4-hU-31y" firstAttribute="top" secondItem="v2g-VW-Nnk" secondAttribute="bottom" type="default" id="IaJ-pJ-GZD"/>
                             <constraint firstItem="v2g-VW-Nnk" firstAttribute="top" secondItem="6O4-t7-1ba" secondAttribute="top" type="default" id="KBv-g3-pBV"/>
                             <constraint firstItem="fk4-hU-31y" firstAttribute="leading" secondItem="6O4-t7-1ba" secondAttribute="leading" type="default" id="M1b-oN-AQQ"/>
-                            <constraint firstItem="6N6-TH-feT" firstAttribute="trailing" secondItem="6O4-t7-1ba" secondAttribute="trailing" type="default" id="MiQ-w6-YhA"/>
-                            <constraint firstItem="6N6-TH-feT" firstAttribute="leading" secondItem="6O4-t7-1ba" secondAttribute="leading" type="default" id="Myf-Pz-aPa"/>
-                            <constraint firstItem="6N6-TH-feT" firstAttribute="top" secondItem="6O4-t7-1ba" secondAttribute="top" constant="163" id="aBS-79-cvh"/>
+                            <constraint firstItem="6N6-TH-feT" firstAttribute="centerX" secondItem="fk4-hU-31y" secondAttribute="centerX" type="default" id="YI4-KV-G60"/>
                             <constraint firstItem="fk4-hU-31y" firstAttribute="bottom" secondItem="6O4-t7-1ba" secondAttribute="bottom" type="default" id="jo0-zS-ZHn"/>
                             <constraint firstItem="v2g-VW-Nnk" firstAttribute="trailing" secondItem="6O4-t7-1ba" secondAttribute="trailing" type="default" id="vvh-3c-hxg"/>
                             <constraint firstItem="fk4-hU-31y" firstAttribute="trailing" secondItem="6O4-t7-1ba" secondAttribute="trailing" type="default" id="xzG-T0-lhx"/>
@@ -122,11 +122,8 @@
             <relationships>
                 <relationship kind="action" name="actionButtonTouched"/>
                 <relationship kind="action" name="cameraButtonTouched"/>
-                <relationship kind="action" name="circleModeButtonTouched"/>
                 <relationship kind="action" name="colorChangeButtonTouched"/>
                 <relationship kind="action" name="fillModeButtonTouched"/>
-                <relationship kind="action" name="holeModeButtonTouched"/>
-                <relationship kind="action" name="lineModeButtonTouched"/>
                 <relationship kind="action" name="originalModeButtonTouched"/>
                 <relationship kind="action" name="specialModeButtonTouched"/>
                 <relationship kind="action" name="undoModeButtonTouched"/>

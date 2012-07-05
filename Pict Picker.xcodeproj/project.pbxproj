@@ -16,6 +16,14 @@
 		8D59D0E8158FBB6C0007A03A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D59D0E6158FBB6C0007A03A /* MainStoryboard.storyboard */; };
 		8D59D0F6158FBC350007A03A /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D59D0F5158FBC350007A03A /* MasterViewController.m */; };
 		8D6982A8158FD012005F390C /* t_hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D6982A7158FD012005F390C /* t_hero.png */; };
+		8D80EB7015A54F2700125932 /* boot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D80EB6F15A54F2700125932 /* boot.wav */; };
+		8D80EB7615A5612100125932 /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D80EB7515A5612100125932 /* UIImage+fixOrientation.m */; };
+		8D80EB7815A573A700125932 /* terettere.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D80EB7715A573A700125932 /* terettere.wav */; };
+		8D80EB7E15A5A07100125932 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D80EB7D15A5A07100125932 /* AVFoundation.framework */; };
+		8D80EB8015A5B20900125932 /* drumrollloop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D80EB7F15A5B20900125932 /* drumrollloop.wav */; };
+		8D80EB8215A5C1EC00125932 /* Pop.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 8D80EB8115A5C1EC00125932 /* Pop.aiff */; };
+		8D80EB8515A5D19300125932 /* drumrollfinish.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D80EB8315A5D19300125932 /* drumrollfinish.wav */; };
+		8D80EB8615A5D19300125932 /* drumrollfinish2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D80EB8415A5D19300125932 /* drumrollfinish2.wav */; };
 		8D9CAE6915980FC5004DB1A0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9CAE6815980FC5004DB1A0 /* MobileCoreServices.framework */; };
 		8DAB9DB8159F1D500066D3F9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAB9DB7159F1D500066D3F9 /* QuartzCore.framework */; };
 		8DBDD8FE15A04DF9008CA9F3 /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDD8FD15A04DF9008CA9F3 /* UIImage+StackBlur.m */; };
@@ -52,6 +60,15 @@
 		8D59D0F4158FBC350007A03A /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		8D59D0F5158FBC350007A03A /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		8D6982A7158FD012005F390C /* t_hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t_hero.png; sourceTree = "<group>"; };
+		8D80EB6F15A54F2700125932 /* boot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boot.wav; sourceTree = "<group>"; };
+		8D80EB7415A5612100125932 /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+fixOrientation.h"; path = "../ColorPicker/UIImage+fixOrientation.h"; sourceTree = "<group>"; };
+		8D80EB7515A5612100125932 /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+fixOrientation.m"; path = "../ColorPicker/UIImage+fixOrientation.m"; sourceTree = "<group>"; };
+		8D80EB7715A573A700125932 /* terettere.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = terettere.wav; sourceTree = "<group>"; };
+		8D80EB7D15A5A07100125932 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8D80EB7F15A5B20900125932 /* drumrollloop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drumrollloop.wav; sourceTree = "<group>"; };
+		8D80EB8115A5C1EC00125932 /* Pop.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Pop.aiff; sourceTree = "<group>"; };
+		8D80EB8315A5D19300125932 /* drumrollfinish.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drumrollfinish.wav; sourceTree = "<group>"; };
+		8D80EB8415A5D19300125932 /* drumrollfinish2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drumrollfinish2.wav; sourceTree = "<group>"; };
 		8D9CAE6815980FC5004DB1A0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8DAB9DB7159F1D500066D3F9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8DBDD8FC15A04DF9008CA9F3 /* UIImage+StackBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+StackBlur.h"; sourceTree = "<group>"; };
@@ -85,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D80EB7E15A5A07100125932 /* AVFoundation.framework in Frameworks */,
 				8DBDD98015A20D58008CA9F3 /* AudioToolbox.framework in Frameworks */,
 				8DCCDBB4159F27E100DE4EB9 /* CoreImage.framework in Frameworks */,
 				8DAB9DB8159F1D500066D3F9 /* QuartzCore.framework in Frameworks */,
@@ -101,6 +119,7 @@
 		8D59D0C5158FBB6C0007A03A = {
 			isa = PBXGroup;
 			children = (
+				8D80EB7D15A5A07100125932 /* AVFoundation.framework */,
 				8DBDD96015A0AED7008CA9F3 /* ColorPicker */,
 				8D59D0DA158FBB6C0007A03A /* Pict Picker */,
 				8D59D0D3158FBB6C0007A03A /* Frameworks */,
@@ -133,6 +152,8 @@
 		8D59D0DA158FBB6C0007A03A /* Pict Picker */ = {
 			isa = PBXGroup;
 			children = (
+				8D80EB7415A5612100125932 /* UIImage+fixOrientation.h */,
+				8D80EB7515A5612100125932 /* UIImage+fixOrientation.m */,
 				8DBDD8FC15A04DF9008CA9F3 /* UIImage+StackBlur.h */,
 				8DBDD8FD15A04DF9008CA9F3 /* UIImage+StackBlur.m */,
 				8D59D0E3158FBB6C0007A03A /* AppDelegate.h */,
@@ -148,6 +169,12 @@
 		8D59D0DB158FBB6C0007A03A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8D80EB8315A5D19300125932 /* drumrollfinish.wav */,
+				8D80EB8415A5D19300125932 /* drumrollfinish2.wav */,
+				8D80EB8115A5C1EC00125932 /* Pop.aiff */,
+				8D80EB7F15A5B20900125932 /* drumrollloop.wav */,
+				8D80EB7715A573A700125932 /* terettere.wav */,
+				8D80EB6F15A54F2700125932 /* boot.wav */,
 				8DBDD99315A220D2008CA9F3 /* ah.wav */,
 				8DBDD99415A220D2008CA9F3 /* an.wav */,
 				8DBDD99515A220D2008CA9F3 /* wow.wav */,
@@ -246,6 +273,12 @@
 				8DBDD99615A220D2008CA9F3 /* ah.wav in Resources */,
 				8DBDD99715A220D2008CA9F3 /* an.wav in Resources */,
 				8DBDD99815A220D2008CA9F3 /* wow.wav in Resources */,
+				8D80EB7015A54F2700125932 /* boot.wav in Resources */,
+				8D80EB7815A573A700125932 /* terettere.wav in Resources */,
+				8D80EB8015A5B20900125932 /* drumrollloop.wav in Resources */,
+				8D80EB8215A5C1EC00125932 /* Pop.aiff in Resources */,
+				8D80EB8515A5D19300125932 /* drumrollfinish.wav in Resources */,
+				8D80EB8615A5D19300125932 /* drumrollfinish2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +299,7 @@
 				8DBDD97015A0AED7008CA9F3 /* HRColorPickerView.m in Sources */,
 				8DBDD97115A0AED7008CA9F3 /* HRColorPickerViewController.m in Sources */,
 				8DBDD97215A0AED7008CA9F3 /* HRColorUtil.m in Sources */,
+				8D80EB7615A5612100125932 /* UIImage+fixOrientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
