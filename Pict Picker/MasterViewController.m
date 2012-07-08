@@ -124,7 +124,7 @@
     [self playSystemSound:fileURL];
     //loading view
     loadingView = [[UIView alloc] initWithFrame:self.navigationController.view.bounds];
-    loadingView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+    loadingView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];//please customize
     // インジケータ作成
     myActivityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [myActivityIndicatorView setCenter:CGPointMake(loadingView.bounds.size.width / 2, loadingView.bounds.size.height / 2)];
@@ -175,7 +175,7 @@
          CGRectMake(0, 0, canvas.frame.size.width, canvas.frame.size.height)];
         //ここに書く
         CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 1.0, 1.0, 1.0, 1.0);//important
-        CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), CGRectMake(touchPoint.x, touchPoint.y, 42, 42));
+        CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), CGRectMake(touchPoint.x-0.5, touchPoint.y-0.5, 1, 1));//please customize
         CGContextStrokePath(UIGraphicsGetCurrentContext());
         //
         //描画
