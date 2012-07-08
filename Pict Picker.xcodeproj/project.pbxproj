@@ -119,7 +119,6 @@
 		8D59D0C5158FBB6C0007A03A = {
 			isa = PBXGroup;
 			children = (
-				8D80EB7D15A5A07100125932 /* AVFoundation.framework */,
 				8DBDD96015A0AED7008CA9F3 /* ColorPicker */,
 				8D59D0DA158FBB6C0007A03A /* Pict Picker */,
 				8D59D0D3158FBB6C0007A03A /* Frameworks */,
@@ -138,6 +137,7 @@
 		8D59D0D3158FBB6C0007A03A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8D80EB7D15A5A07100125932 /* AVFoundation.framework */,
 				8DBDD97F15A20D58008CA9F3 /* AudioToolbox.framework */,
 				8DCCDBB3159F27E100DE4EB9 /* CoreImage.framework */,
 				8DAB9DB7159F1D500066D3F9 /* QuartzCore.framework */,

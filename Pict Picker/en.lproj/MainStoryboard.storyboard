@@ -116,36 +116,6 @@
     <resources>
         <image name="ki.jpg" width="1280" height="1024"/>
     </resources>
-    <classes>
-        <class className="MasterViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="actionButtonTouched"/>
-                <relationship kind="action" name="cameraButtonTouched"/>
-                <relationship kind="action" name="colorChangeButtonTouched"/>
-                <relationship kind="action" name="fillModeButtonTouched"/>
-                <relationship kind="action" name="originalModeButtonTouched"/>
-                <relationship kind="action" name="specialModeButtonTouched"/>
-                <relationship kind="action" name="undoModeButtonTouched"/>
-                <relationship kind="outlet" name="circleModeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="colorChangeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="fillModeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="firstGuideLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="holeModeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="lineModeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="myCentralLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myRadiusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myToolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="originalModeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="pictImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="specialModeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="undoModeButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
